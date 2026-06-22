@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易游体育 · 信息卡片式介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f6f2ec;  /* 米白基调 */
+            font-family: system-ui, 'Segoe UI', 'Noto Sans SC', -apple-system, sans-serif;
+            color: #2a2a2a;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fdfbf9;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem;
+        }
+
+        /* 主视觉 —— 卡片式 hero */
+        .hero-card {
+            background: #eae3d8;
+            padding: 2.2rem 2rem;
+            border-radius: 24px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::after {
+            content: "✦";
+            font-size: 8rem;
+            color: rgba(180, 160, 130, 0.10);
+            position: absolute;
+            right: -1rem;
+            bottom: -2.5rem;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #2e2b27;
+            margin-bottom: 0.6rem;
+        }
+        .hero-card .sub {
+            font-size: 1.05rem;
+            color: #4f4a45;
+            max-width: 80%;
+        }
+        @media (max-width: 640px) {
+            .hero-card .sub { max-width: 100%; }
+            .hero-card h1 { font-size: 1.9rem; }
+        }
+
+        /* 文章排版 */
+        .section {
+            margin-bottom: 2.2rem;
+        }
+        .section-head {
+            font-size: 1.3rem;
+            font-weight: 500;
+            border-left: 5px solid #bc9a7a;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #2c2824;
+        }
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        a {
+            color: #7a5f4a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #bc9a7a;
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom: 2px solid #7a5f4a;
+        }
+
+        /* 用途卡片 —— 三列网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 1.2rem;
+        }
+        .card-item {
+            background: #f4ede6;
+            padding: 1.6rem 1.2rem;
+            border-radius: 20px;
+            transition: box-shadow 0.2s;
+        }
+        .card-item:hover {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        }
+        .card-item h3 {
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #332e2a;
+        }
+        .card-item p {
+            font-size: 0.95rem;
+            color: #4d4944;
+            margin-bottom: 0;
+        }
+        @media (max-width: 720px) {
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 适合人群 —— 引用块风格 */
+        .quote-block {
+            background: #efe9e0;
+            padding: 1.5rem 2rem;
+            border-radius: 28px 12px 28px 12px;
+            margin: 1.8rem 0;
+            font-style: normal;
+            position: relative;
+        }
+        .quote-block::before {
+            content: "▌";
+            font-size: 2.2rem;
+            color: #b29479;
+            margin-right: 0.3rem;
+            line-height: 1;
+        }
+        .quote-block strong {
+            color: #3d352e;
+        }
+
+        /* 自然链接段落 + 提示框 */
+        .tip-box {
+            background: #e2d9ce;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 12px 40px 12px;
+            display: inline-block;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 0.98rem;
+        }
+        .inline-link {
+            background: #f3ede6;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* FAQ 摘要（极简） */
+        .faq-mini {
+            margin-top: 2.2rem;
+            border-top: 1px solid #dacfc3;
+            padding-top: 1.5rem;
+        }
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f5f0ea;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .faq-mini summary {
+            font-weight: 450;
+            color: #3e3731;
+        }
+        .faq-mini details p {
+            margin: 0.7rem 0 0.2rem;
+            font-size: 0.95rem;
+            color: #4d4640;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .page { padding: 1.5rem 1rem; }
+            .hero-card { padding: 1.6rem 1.2rem; }
+        }
+        hr {
+            border: none;
+            border-top: 2px dotted #ddd1c3;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <h1>易游体育 · 聚合运动信息服务</h1>
+        <div class="sub">从赛事资讯到场馆指南，帮你快速定位所需内容，减少筛选成本。</div>
+    </div>
+
+    <!-- 第一段 —— 从用户识别用途切入 -->
+    <div class="section">
+        <div class="section-head">📌 平台定位速览</div>
+        <p>
+            当你打开一个体育类站点，最迫切的需求往往是：<strong>这里能做什么？</strong> 
+            <a href="https://cnweb-yysports.com">易游体育</a> 以信息聚合与导航为核心，将分散的体育资源（赛事日程、训练方法、地方场馆、业余联赛动态）整理为可浏览的模块。
+            不需要在多个页面之间反复跳转，首页即提供清晰的分类入口，适合想快速评估网站价值的访问者。
+        </p>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="section">
+        <div class="section-head">🧩 主要用途</div>
+        <div class="card-grid">
+            <div class="card-item">
+                <h3>赛事信息参考</h3>
+                <p>收录国内多项职业与业余赛事的基本信息、时间节点及官方渠道指引，辅助你制定观赛或参赛计划。</p>
+            </div>
+            <div class="card-item">
+                <h3>场地与机构索引</h3>
+                <p>提供经过整理的体育场馆、培训机构的简介与联系方式，侧重实用性，非商业推广。</p>
+            </div>
+            <div class="card-item">
+                <h3>运动知识简报</h3>
+                <p>涵盖基础训练常识、运动防护要点，内容源自公开资料汇编，适合入门级爱好者参考。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 适合人群 —— 引用块 -->
+    <div class="quote-block">
+        <strong>适合这样的你：</strong> 刚接触某项运动、想查找本地体育设施、或者希望系统性了解国内体育赛事框架的普通爱好者。<br>
+        也适合内容创作者——将 <a href="https://cnweb-yysports.com" style="border-bottom:2px solid #7a5f4a;">易游体育</a> 作为信息索引起点，再按图索骥深入原始资料。
+    </div>
+
+    <!-- 自然链接段落 + 提示框 -->
+    <div class="section">
+        <p>
+            在实际使用中，很多访客会把该站当作“体育信息目录”：从首页的专题分类进入，再根据自身兴趣筛选。例如，想了解本地羽毛球馆的开放情况，可先通过站点内的场馆列表获得线索，再自行联系确认。
+            如果你只想快速浏览有哪些版块，可以直接访问 <span class="inline-link"><a href="https://cnweb-yysports.com">易游体育</a></span> 的首页，其结构偏向目录式布局，降低认知负荷。
+        </p>
+        <div class="tip-box">
+            💡 提示：网站本身不直接提供报名、售票或预约服务，而是作为信息集合节点，请以官方渠道为准。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="section-head" style="border-left-color:#b29479;">❔ 常见疑问（摘要）</div>
+        <details>
+            <summary>网站内容更新频率如何？</summary>
+            <p>主要依据赛季周期和公开信息变动进行阶段性更新，非实时流。重大赛事期间调整较频繁。</p>
+        </details>
+        <details>
+            <summary>是否需要注册才能浏览？</summary>
+            <p>不需要。全部内容对访客开放，无强制登录或付费门槛。</p>
+        </details>
+        <details>
+            <summary>为什么选择易游体育作为参考？</summary>
+            <p>因为它将零散的体育信源做了基础分类，省去自行搜索和比对的时间，尤其适合信息查找初期。</p>
+        </details>
+    </div>
+
+    <!-- 结尾句 + 自然链接 -->
+    <hr>
+    <p style="font-size:0.96rem; color:#5b534c;">
+        如果你对体育信息整合的方式感兴趣，不妨从 <a href="https://cnweb-yysports.com">易游体育</a> 开始探索。<br>
+        本介绍页基于公开资料与平台特征撰写，仅供功能说明参考。
+    </p>
+</div>
+</body>
+</html>
