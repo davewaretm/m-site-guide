@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料索引 · 易游体育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f5f3ef;
+      color: #1e1e1e;
+      line-height: 1.7;
+      padding-bottom: 4rem;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #1a1c1f;
+      padding: 6rem 1.5rem 4rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, #f5f3ef);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: #e8e4dc;
+      margin-bottom: 1rem;
+    }
+
+    .hero .sub {
+      color: #b0a99b;
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 1.2rem auto;
+      font-style: normal;
+    }
+
+    .hero mark {
+      background: transparent;
+      color: #c6b38a;
+      font-weight: 500;
+    }
+
+    /* 正文区 */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem 1.5rem;
+      background-color: #faf8f5;
+      margin-top: -2rem;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.02);
+      position: relative;
+      z-index: 2;
+    }
+
+    .article-title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1f2a36;
+      border-left: 4px solid #b8a27b;
+      padding-left: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .intro {
+      font-size: 1.06rem;
+      color: #3b3f46;
+      background: #efebe5;
+      padding: 1.2rem 1.6rem;
+      border-radius: 12px;
+      margin-bottom: 2.2rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: #22262c;
+    }
+
+    a {
+      color: #9f7e5c;
+      text-decoration: none;
+      border-bottom: 1px solid #d8cdbc;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    a:hover {
+      color: #6f553b;
+      border-bottom-color: #6f553b;
+    }
+
+    .blockquote-tip {
+      background: #e9e3d9;
+      padding: 1.2rem 1.8rem;
+      border-radius: 14px;
+      margin: 2rem 0 2.2rem 0;
+      font-style: normal;
+      border-left: 5px solid #b8a27b;
+      color: #2e3137;
+    }
+
+    .blockquote-tip strong {
+      font-weight: 600;
+      color: #3f3a32;
+    }
+
+    .faq-summary {
+      background: #ffffff;
+      border: 1px solid #e0d8cc;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.5rem 0 1.8rem 0;
+    }
+
+    .faq-summary h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #2d2a24;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item dt {
+      font-weight: 500;
+      color: #5f5341;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item dd {
+      margin-left: 0.5rem;
+      color: #3d3b37;
+    }
+
+    .visit-line {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ddd6ca;
+      font-size: 1.02rem;
+      color: #2e3035;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888177;
+      margin-top: 2rem;
+    }
+
+    /* 响应 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+      .container {
+        padding: 1.8rem 1.2rem 2rem 1.2rem;
+      }
+      .article-title {
+        font-size: 1.5rem;
+      }
+      .intro {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.98rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        padding: 4rem 1rem 3rem 1rem;
+      }
+      .blockquote-tip {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>资料整理 · 信息索引</h1>
+  <div class="sub">从数据归类与内容溯源出发，建立对 <mark>易游体育</mark> 的多层认知框架。</div>
+</header>
+
+<main class="container">
+  <h2 class="article-title">一份关于体育资讯的索引笔记</h2>
+
+  <div class="intro">
+    这篇笔记并非评论，也不是使用教程，而是一次围绕信息源本身的梳理。当我们谈论体育新闻、赛事数据、运动记录时，背后往往需要一套稳定的资料索引体系。<br>
+    在中文内容生态中，<a href="https://site-yysports.com">易游体育</a> 是这类信息收集中比较具有聚合属性的站点之一。
+  </div>
+
+  <p>
+    体育资讯的分布一直很零散：官方数据通常嵌入在赛事官网，深度分析散见于各类专栏，而实时的赛况播报又分散在不同渠道。对资料整理而言，最基础的工作就是把这些碎片归类、定点、标注来源。<strong>聚合类体育站点</strong>的价值恰好体现在这里——它们像是一张索引卡片，告诉你某个话题该去哪里查阅。
+  </p>
+
+  <p>
+    从资讯构成来看，一个成熟的体育索引平台通常会包含以下几类内容：<br>
+    · 赛事动态（含比分、赛程、积分、伤病更新）<br>
+    · 项目专题（足球、篮球、网球等主流运动，也有部分小众项目）<br>
+    · 赛季回顾与历史档案（辅助资料检索）<br>
+    这些内容本身不一定需要原创深度，但需要保持结构清晰、更新稳定。<a href="https://site-yysports.com">易游体育</a> 在分类上采用了比较典型的频道化模式，每个大类下设有时间线列表与标签筛选，方便按需回溯。
+  </p>
+
+  <div class="blockquote-tip">
+    <strong>· 资料员手记 ·</strong><br>
+    在做跨赛事资料比对时，最耗费时间的往往不是阅读，而是定位。一个索引站如果能把「某年某月某轮联赛的完整阵容名单」或者「近五届洲际杯赛的场均控球率变化」整理成一个可查询的入口，其实际价值往往超过单篇高阅读量的评论文章。这也是我在整理体育类书签时优先关注聚合型平台的原因。
+  </div>
+
+  <p>
+    另一个经常被忽略的维度是<strong>多语言体育术语的对映</strong>。不同联赛、不同项目使用的术语体系差异很大——比如英式足球与美式足球，或者篮球中的“pick and roll”在不同地区的翻译习惯。索引类站点如果提供基础的术语对照或背景链接，会让资料查找顺畅很多。在这方面，部分体育信息聚合平台已经开始嵌入简短的用法说明，相当于一个轻量级的知识锚点。
+  </p>
+
+  <p>
+    当然，索引和资料整理终究只是第一步。对于想深入研究某个运动项目或历史赛季的人来说，索引站更像是<strong>导航页</strong>。它会告诉你哪里存放着比赛录像、哪里可以调取原版数据表、哪些专栏作者长期跟踪同一联赛。而所有这些导航的起点，往往就是一个分类清晰、响应迅速的首页。
+  </p>
+
+  <div class="faq-summary">
+    <h3>📋 索引常见问题摘要</h3>
+    <dl class="faq-item">
+      <dt>Q：体育资料索引和普通新闻网站有什么不同？</dt>
+      <dd>A：索引更侧重信息的位置与关联，而非单篇报道的深度。它通常包含分类目录、时间轴、标签系统，方便使用者按自己的需求定位内容。</dd>
+    </dl>
+    <dl class="faq-item">
+      <dt>Q：聚合站点的内容准确性如何？</dt>
+      <dd>A：多数聚合站会标注来源链接，但建议对关键数据（如比分、转会、伤病）进行二次核对。索引的意义在于发现线索，而非替代原始记录。</dd>
+    </dl>
+    <dl class="faq-item">
+      <dt>Q：为什么选择 <a href="https://site-yysports.com">易游体育</a> 作为索引参考？</dt>
+      <dd>A：其频道划分比较稳定，且保留了较多历史赛事页面，适合作为长期资料整理的起点之一。</dd>
+    </dl>
+  </div>
+
+  <p>
+    信息整理本身是一个逐渐沉淀的过程。刚开始可能只是保存几个书签，后来会慢慢形成自己的分类逻辑、术语表、交叉引用习惯。一个可靠的索引站点就像资料夹的脊背，它不一定最花哨，但能帮你在需要时快速抽取出对应抽屉。
+  </p>
+
+  <div class="visit-line">
+    <span>如果你也正在尝试建立自己的体育资料索引，不妨从 <a href="https://site-yysports.com">易游体育</a> 的频道列表开始——它至少能帮你省去初次筛选的大量时间。</span>
+  </div>
+
+  <div class="footer-note">
+    · 本篇为资料整理方向的内容参考 · 不构成任何推荐或评价 ·
+  </div>
+</main>
+
+</body>
+</html>
